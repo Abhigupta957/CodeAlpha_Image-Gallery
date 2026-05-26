@@ -1,0 +1,386 @@
+/* GLOBAL RESET & BASE STYLES */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0f0f13;
+  color: #e8e8f0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  min-height: 100vh;
+}
+
+
+/* COLOR VARIABLES */
+
+:root {
+  --color-bg:           #0f0f13;   /* page background */
+  --color-surface:      #1a1a24;   /* card background */
+  --color-accent:       #7c6af7;   /* purple highlight */
+  --color-accent-light: #a89cf8;   /* lighter purple */
+  --color-text:         #e8e8f0;   /* main text */
+  --color-muted:        #888899;   /* dimmed text */
+  --border-radius:      12px;      /* rounded corners */
+  --transition-speed:   0.3s;      /* animation speed */
+}
+
+
+/* HEADER & TITLE */
+
+header {
+  padding: 2rem 1.5rem 1rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+
+  /* Gradient text effect */
+  background: linear-gradient(135deg, #a89cf8, #f0a0d0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+
+/* FILTER BUTTONS */
+
+.filter-buttons {
+  display: flex;           
+  flex-wrap: wrap;         
+  justify-content: center; 
+  gap: 0.5rem;             
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.filter-btn {
+  background-color: #1a1a24;
+  color: #888899;
+  border: 1px solid #2a2a3a;
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px;    
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition:
+    background-color var(--transition-speed),
+    color            var(--transition-speed),
+    border-color     var(--transition-speed),
+    transform        0.15s;
+}
+
+/* Hover state */
+.filter-btn:hover {
+  color: #e8e8f0;
+  border-color: #7c6af7;
+  transform: translateY(-1px);
+}
+
+/* Active state  */
+.filter-btn.active {
+  background-color: #7c6af7;
+  color: #ffffff;
+  border-color: #7c6af7;
+}
+
+
+/* GALLERY GRID */
+
+main {
+  padding: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+
+/*  GALLERY CARD (each image box) */
+
+.gallery-item {
+  position: relative;          
+  border-radius: var(--border-radius);
+  overflow: hidden;            
+  cursor: pointer;
+  aspect-ratio: 3 / 2;        
+  background-color: #1a1a24;
+  outline: 2px solid transparent;
+
+  /* Smooth animation for hover effects */
+  transition:
+    transform    var(--transition-speed),
+    box-shadow   var(--transition-speed),
+    outline-color var(--transition-speed);
+}
+
+/* Card lifts up when hovered or focused with keyboard */
+.gallery-item:hover,
+.gallery-item:focus-visible {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 12px 40px rgba(124, 106, 247, 0.35);
+  outline-color: #7c6af7;
+}
+
+/* The image fills the entire card */
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+/* Image zooms in slightly on hover */
+.gallery-item:hover img {
+  transform: scale(1.07);
+}
+
+
+/* HOVER OVERLAY */
+
+.overlay {
+  /* Covers entire card */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  /* Dark gradient from bottom to transparent top */
+  background: linear-gradient(
+    to top,
+    rgba(10, 10, 20, 0.85) 0%,
+    transparent 55%
+  );
+
+  /* Push text to the bottom of the card */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1rem;
+
+  /* Hidden by default, fades in on hover */
+  opacity: 0;
+  transition: opacity var(--transition-speed);
+}
+
+/* Show overlay when card is hovered or focused */
+.gallery-item:hover .overlay,
+.gallery-item:focus-visible .overlay {
+  opacity: 1;
+}
+
+.image-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.image-category {
+  font-size: 0.72rem;
+  color: #a89cf8;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 0.2rem;
+}
+
+
+/*  HIDDEN CLASS */
+
+.gallery-item.hidden {
+  display: none;
+}
+
+
+/* LIGHTBOX (full-screen image viewer) */
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background-color: rgba(5, 5, 10, 0.95);
+
+  /* Center the content horizontally and vertically */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 1000;   
+
+  /* Fade in animation when opened */
+  animation: fadeIn 0.25s ease;
+}
+
+/* When the lightbox has the "hidden" attribute, hide it */
+.lightbox[hidden] {
+  display: none;
+}
+
+/* Fade-in keyframe animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* The center box holding the image, title, and filter buttons */
+.lb-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: min(90vw, 900px);
+  width: 100%;
+  gap: 0.75rem;
+}
+
+/* The large image inside the lightbox */
+#lb-img {
+  max-width: 100%;
+  max-height: 70vh;
+  border-radius: var(--border-radius);
+  object-fit: contain;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+
+  /* Smooth transition when switching images or applying filters */
+  transition: filter 0.35s ease, opacity 0.25s ease;
+}
+
+/* Row showing image title on the left, counter on the right */
+.lb-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 0.25rem;
+  color: #888899;
+  font-size: 0.875rem;
+}
+
+#lb-title {
+  color: #e8e8f0;
+  font-weight: 600;
+}
+
+
+/* LIGHTBOX NAVIGATION BUTTONS */
+
+/* The X close button in the top-right corner */
+.lb-close {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: #888899;
+  font-size: 2.5rem;
+  cursor: pointer;
+  line-height: 1;
+  z-index: 1001;
+  transition: color var(--transition-speed), transform var(--transition-speed);
+}
+
+.lb-close:hover {
+  color: #ffffff;
+  transform: rotate(90deg);   
+}
+
+/* styles prev and next arrow buttons */
+.lb-prev,
+.lb-next {
+  background-color: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #e8e8f0;
+  font-size: 2.5rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;         
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;              
+  padding-bottom: 2px;
+  transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.lb-prev:hover,
+.lb-next:hover {
+  background-color: #7c6af7;
+  transform: scale(1.1);
+}
+
+
+/*  LIGHTBOX IMAGE FILTER BUTTONS */
+
+.lb-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.img-filter-btn {
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #888899;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition:
+    background-color var(--transition-speed),
+    color            var(--transition-speed),
+    border-color     var(--transition-speed);
+}
+
+.img-filter-btn:hover {
+  color: #e8e8f0;
+  border-color: #a89cf8;
+}
+
+/* filter button */
+.img-filter-btn.active {
+  background-color: #7c6af7;
+  color: #ffffff;
+  border-color: #7c6af7;
+}
+
+
+/* RESPONSIVE DESIGN */
+
+/* Tablet and small screens  */
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 0.6rem;
+  }
+
+  .lb-prev,
+  .lb-next {
+    width: 2.25rem;
+    height: 2.25rem;
+    font-size: 1.75rem;
+  }
+
+  .lb-content {
+    max-width: 95vw;
+  }
+}
+
+/* Very small screens  */
+@media (max-width: 400px) {
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+}

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <!--
+    HEAD SECTION
+    - Sets the page title shown in the browser tab
+    - Links our CSS file for styling
+    - The viewport meta tag makes the page look good on mobile
+  -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+
+    <header>
+
+      <h1>Image Gallery</h1>
+
+      <!-- Filter Buttons -->
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="nature">Nature</button>
+        <button class="filter-btn" data-filter="city">City</button>
+        <button class="filter-btn" data-filter="abstract">Abstract</button>
+        <button class="filter-btn" data-filter="ocean">Ocean</button>
+        <button class="filter-btn" data-filter="architecture">Architecture</button>
+        <button class="filter-btn" data-filter="wildlife">Wildlife</button>
+      </div>
+
+    </header>
+
+    <!-- GALLERY SECTION -->
+    <main>
+
+      <div class="gallery" id="gallery">
+
+        <!--  NATURE IMAGES (4)  -->
+
+        <div class="gallery-item" data-category="nature" tabindex="0">
+          <img
+            src="images/Nature/Misty Forest.jpg"
+            alt="Misty Forest"
+            loading="lazy"/>
+
+          <div class="overlay">
+            <span class="image-title">Misty Forest</span>
+            <span class="image-category">Nature</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="nature" tabindex="0">
+          <img
+            src="images/Nature/Alpine Meadow.jpg"
+            alt="Alpine Meadow"
+            loading="lazy"/>
+
+          <div class="overlay">
+            <span class="image-title">Alpine Meadow</span>
+            <span class="image-category">Nature</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="nature" tabindex="0">
+          <img
+            src="images/Nature/Autumn Leaves.jpg"
+            alt="Autumn Leaves"
+            loading="lazy"/>
+
+          <div class="overlay">
+            <span class="image-title">Autumn Leaves</span>
+            <span class="image-category">Nature</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="nature" tabindex="0">
+          <img
+            src="images/Nature/Desert Dunes.jpg"
+            alt="Desert Dunes"
+            loading="lazy"/>
+
+          <div class="overlay">
+            <span class="image-title">Desert Dunes</span>
+            <span class="image-category">Nature</span>
+          </div>
+        </div>
+
+        <!-- ---- CITY IMAGES (4) ---- -->
+
+        <div class="gallery-item" data-category="city" tabindex="0">
+          <img
+            src="images/City/Tokyo Nights.jpg"
+            alt="Tokyo Nights"
+            loading="lazy"/>
+
+          <div class="overlay">
+            <span class="image-title">Tokyo Nights</span>
+            <span class="image-category">City</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="city" tabindex="0">
+          <img
+            src="images/City/NYC Skyline.jpg"
+            alt="NYC Skyline"
+            loading="lazy"/>
+
+          <div class="overlay">
+            <span class="image-title">NYC Skyline</span>
+            <span class="image-category">City</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="city" tabindex="0">
+          <img
+            src="images/City/Rainy Street.jpg"
+            alt="Rainy Street"
+            loading="lazy"/>
+            
+          <div class="overlay">
+            <span class="image-title">Rainy Street</span>
+            <span class="image-category">City</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="city" tabindex="0">
+          <img
+            src="images/City/Golden Gate.jpg"
+            alt="Golden Gate Bridge"
+            loading="lazy"/>
+
+          <div class="overlay">
+            <span class="image-title">Golden Gate</span>
+            <span class="image-category">City</span>
+          </div>
+        </div>
+
+        <!-- ABSTRACT IMAGES (4) -->
+
+        <div class="gallery-item" data-category="abstract" tabindex="0">
+          <img
+            src="images/Abstract/Neon Ripples.jpg"
+            alt="Neon Ripples"
+            loading="lazy"/>
+
+          <div class="overlay">
+            <span class="image-title">Neon Ripples</span>
+            <span class="image-category">Abstract</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="abstract" tabindex="0">
+          <img
+            src="images/Abstract/Liquid Gold.jpg"
+            alt="Liquid Gold"
+            loading="lazy"/>
+
+          <div class="overlay">
+            <span class="image-title">Liquid Gold</span>
+            <span class="image-category">Abstract</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="abstract" tabindex="0">
+          <img
+            src="images/Abstract/Smoke Art.jpg"
+            alt="Smoke Art"
+            loading="lazy"/>
+
+          <div class="overlay">
+            <span class="image-title">Smoke Art</span>
+            <span class="image-category">Abstract</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="abstract" tabindex="0">
+          <img
+            src="images/Abstract/Fractal Burst.jpg"
+            alt="Fractal Burst"
+            loading="lazy"/>
+
+          <div class="overlay">
+            <span class="image-title">Fractal Burst</span>
+            <span class="image-category">Abstract</span>
+          </div>
+        </div>
+
+        <!-- OCEAN IMAGES (4) -->
+
+        <div class="gallery-item" data-category="ocean" tabindex="0">
+          <img
+            src="images/Ocean/Crashing Waves.jpg"
+            alt="Crashing Waves"
+            loading="lazy"/>
+
+          <div class="overlay">
+            <span class="image-title">Crashing Waves</span>
+            <span class="image-category">Ocean</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="ocean" tabindex="0">
+          <img
+            src="images/Ocean/Turquoise Cove.jpg"
+            alt="Turquoise Cove"
+            loading="lazy"/>
+
+          <div class="overlay">
+            <span class="image-title">Turquoise Cove</span>
+            <span class="image-category">Ocean</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="ocean" tabindex="0">
+          <img
+            src="images/Ocean/Underwater Coral.jpg"
+            alt="Underwater Coral"
+            loading="lazy"/>
+
+          <div class="overlay">
+            <span class="image-title">Underwater Coral</span>
+            <span class="image-category">Ocean</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="ocean" tabindex="0">
+          <img
+            src="images/Ocean/Sunset Horizon.jpg"
+            alt="Sunset Horizon"
+            loading="lazy"/>
+
+          <div class="overlay">
+            <span class="image-title">Sunset Horizon</span>
+            <span class="image-category">Ocean</span>
+          </div>
+        </div>
+
+        <!--  ARCHITECTURE IMAGES (4)  -->
+
+        <div class="gallery-item" data-category="architecture" tabindex="0">
+          <img
+            src="images/Architecture/Glass Tower.jpg"
+            alt="Glass Tower"
+            loading="lazy"/>
+
+          <div class="overlay">
+            <span class="image-title">Glass Tower</span>
+            <span class="image-category">Architecture</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="architecture" tabindex="0">
+          <img
+            src="images/Architecture/Ancient Columns.jpg"
+            alt="Ancient Columns"
+            loading="lazy"/>
+
+          <div class="overlay">
+            <span class="image-title">Ancient Columns</span>
+            <span class="image-category">Architecture</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="architecture" tabindex="0">
+          <img
+            src="images/Architecture/Spiral Staircase.webp"
+            alt="Spiral Staircase"
+            loading="lazy"/>
+
+          <div class="overlay">
+            <span class="image-title">Spiral Staircase</span>
+            <span class="image-category">Architecture</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="architecture" tabindex="0">
+          <img
+            src="images/Architecture/Dome Interior.jpg"
+            alt="Dome Interior"
+            loading="lazy"/>
+
+          <div class="overlay">
+            <span class="image-title">Dome Interior</span>
+            <span class="image-category">Architecture</span>
+          </div>
+        </div>
+
+        <!--  WILDLIFE IMAGES (4) -->
+
+        <div class="gallery-item" data-category="wildlife" tabindex="0">
+          <img
+            src="images/Wildlife/Majestic Eagle.jpg"
+            alt="Majestic Eagle"
+            loading="lazy"/>
+
+          <div class="overlay">
+            <span class="image-title">Majestic Eagle</span>
+            <span class="image-category">Wildlife</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="wildlife" tabindex="0">
+          <img
+            src="images/Wildlife/Snow Leopard.jpg"
+            alt="Snow Leopard"
+            loading="lazy"/>
+
+          <div class="overlay">
+            <span class="image-title">Snow Leopard</span>
+            <span class="image-category">Wildlife</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="wildlife" tabindex="0">
+          <img
+            src="images/Wildlife/Humpback Whale.jpg"
+            alt="Humpback Whale"
+            loading="lazy"/>
+
+          <div class="overlay">
+            <span class="image-title">Humpback Whale</span>
+            <span class="image-category">Wildlife</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="wildlife" tabindex="0">
+          <img
+            
+            src="/images/Wildlife/Red Fox.jpg"
+            alt="Red Fox"
+            loading="lazy"/>
+
+          <div class="overlay">
+            <span class="image-title">Red Fox</span>
+            <span class="image-category">Wildlife</span>
+          </div>
+        </div>
+
+      </div>
+      <!-- end .gallery -->
+
+    </main>
+
+    <div class="lightbox" id="lightbox" hidden>
+
+      <!-- Close button -->
+      <button class="lb-close" id="lb-close">&times;</button>
+
+      <!-- Previous image button -->
+      <button class="lb-prev" id="lb-prev">&#8249;</button>
+
+      <!-- Center content area -->
+      <div class="lb-content">
+
+        <!-- The big image shown in the lightbox -->
+        <img id="lb-img" src="" alt="" />
+
+        <!-- Image title and counter -->
+        <div class="lb-info">
+          <span id="lb-title"></span>
+          <span id="lb-counter"></span>
+        </div>
+
+        <!-- Image filter buttons (visual effects) -->
+        <div class="lb-filters">
+          <button class="img-filter-btn active" data-css-filter="none">Original</button>
+          <button class="img-filter-btn" data-css-filter="grayscale(100%)">B&amp;W</button>
+          <button class="img-filter-btn" data-css-filter="sepia(80%)">Sepia</button>
+          <button class="img-filter-btn" data-css-filter="saturate(200%)">Vivid</button>
+          <button class="img-filter-btn" data-css-filter="invert(100%)">Invert</button>
+          <button class="img-filter-btn" data-css-filter="blur(2px)">Blur</button>
+        </div>
+
+      </div>
+
+      <!-- Next image button -->
+      <button class="lb-next" id="lb-next">&#8250;</button>
+
+    </div>
+
+    <script src="gallery.js"></script>
+
+  </body>
+</html>
